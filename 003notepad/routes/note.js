@@ -6,7 +6,7 @@ var router = express.Router();
 var Note = require('../db').Note;
 
 // 新增一条笔记
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res) {
   var title = req.param('title');
   var content = req.param('content');
 
@@ -15,12 +15,11 @@ router.post('/', function (req, res, next) {
   console.log(title, content)
   res.json({
     status:0,
-    msg:'保存成功'
+    msg:'save succes'
   });
 });
-
 // 获取所有笔记
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
   Note.find(function (req,notes) {
     console.log(notes);
     res.json({
@@ -30,7 +29,7 @@ router.get('/', function (req, res, next) {
     })
   })
 });
-
+// 删除所有笔记
 router.delete('/:id', function (req, res, next) {
   var id = req.param('id');
   Note.find({_id:id}).remove().exec();
@@ -39,6 +38,40 @@ router.delete('/:id', function (req, res, next) {
     msg:"删除成功"
   })
 });
-
-
 module.exports = router;
+
+// 修改笔记
+router.put('/:id',function(req,res,next){
+  var id=req.param('id');
+  Note.findOne({_id:id} ,function (err,note) {
+    if(note != null){
+      var title = req.param('title');
+      var content = req.param('content');
+      note.title=title;
+      note.content=content;
+      note.save();
+      res.json({
+        status:0,
+        msg:"修改成功"
+      })
+    }else{
+      res.json({
+        status:-1,
+        msg:"数据不存在"
+        })
+    }
+  })
+});
+
+router.get('/uncle', function (req, res) {
+  var timeBefore = req.param('timeBefore');
+  Note.find({
+    createTime:{$gt:timeBefore} },(function (req,notes) {
+    console.log(notes);
+    res.json({
+      status:0,
+      msg:"获取成功",
+      data:notes
+    })
+  }))
+});
