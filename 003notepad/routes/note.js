@@ -62,7 +62,6 @@ router.put('/:id',function(req,res,next){
     }
   })
 });
-
 router.get('/uncle', function (req, res) {
   var timeBefore = req.param('timeBefore');
   Note.find({
