@@ -1,0 +1,132 @@
+@charset "UTF-8";
+/* reset */
+/*重置样式，清除浏览器默认样式，并配置适合设计的基础样式*/
+/*2016-5-23编辑*/
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*margin-bottom滚动条出现时避免跳跃（貌似没发现）*/
+html {
+  height: 99.9%;
+  color: #333;
+  margin-bottom: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: '方正兰亭黑_GBK', "Microsoft YaHei", "微软雅黑", Arial, sans-serif; }
+
+/* ie下滚动条颜色*/
+html {
+  scrollbar-3dlight-color: #999;
+  color: #333333;
+  scrollbar-darkshadow-color: #999;
+  scrollbar-highlight-color: #fff;
+  scrollbar-shadow-color: #eee;
+  scrollbar-arrow-color: #000;
+  scrollbar-face-color: #ddd;
+  scrollbar-track-color: #eee;
+  scrollbar-base-color: #ddd; }
+
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+  display: block; }
+
+html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu {
+  margin: 0;
+  padding: 0;
+  font-family: inherit; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit; }
+
+header, footer, section, article, aside, nav, address, figure, figcaption, menu, details {
+  display: block;
+  font-family: inherit; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent; }
+
+caption, th {
+  text-align: left;
+  font-weight: normal; }
+
+html, body, fieldset, img, iframe, abbr {
+  border: 0;
+  /* margin-left: 15px; */ }
+
+i, cite, em, var, address, dfn {
+  font-style: normal; }
+
+[hidefocus], summary {
+  outline: 0; }
+
+li {
+  list-style: none; }
+
+/*h1, h2, h3, h4, h5, h6, small {*/
+/*font-size: 100%;*/
+/*}*/
+sup, sub {
+  font-size: 83%; }
+
+pre, code, kbd, samp {
+  font-family: inherit; }
+
+q:before, q:after {
+  content: none; }
+
+textarea {
+  overflow: auto;
+  resize: none; }
+
+label, summary {
+  cursor: default; }
+
+a, button {
+  cursor: pointer; }
+
+h1, h2, h3, h4, h5, h6, em, strong, b {
+  font-weight: 700; }
+
+a, a:hover {
+  text-decoration: none; }
+
+body, textarea, input, button, select, keygen, legend {
+  font-family: inherit;
+  color: #333;
+  outline: 0; }
+
+body {
+  font-size: 13px;
+  background: #f1f1f1; }
+
+a {
+  /* color: #e2708f; */
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+  /*display: block; */ }
+
+.no_nav li {
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px; }
+
+.no_add {
+  margin: 0 auto; }
+
+.no_text {
+  margin-bottom: 10px;
+  padding: 5px;
+  margin-left: 8px;
+  min-height: 70px;
+  background-color: #fff;
+  display: block; }
