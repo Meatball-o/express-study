@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "frontend": "cd frontend&&http-server -p 8080"
+    "frontend": "cd frontend&&http-server  -c-1 -p 8080"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
