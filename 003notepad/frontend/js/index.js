@@ -2,17 +2,6 @@
  * Created by 丸子 on 2017-09-14.
  */
 $(function () {
-
-  // $(".add").click(function () {
-  //   var noAdd = $(".no_add");
-  //   var noText = ('<textarea class="no_text col-xs-11">请输入文本信息!</textarea>')
-  //   noAdd.append(noText);
-  //   $(".remove").click(function () {
-  //     noText.remove();
-  //   })
-  //
-  // })
-
   $("#save").click(function () {
     var title = $("#note_title").val();
     var content = $("#note_con ").val();
@@ -29,6 +18,7 @@ $(function () {
         $('#formAdd')[0].reset();
         fetchList();
       } else {
+
         alert('创建失败')
       }
     })
