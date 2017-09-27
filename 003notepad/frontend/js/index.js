@@ -5,7 +5,7 @@ $(function () {
   $("#save").click(function () {
     var title = $("#note_title").val();
     var content = $("#note_con ").val();
-    if(title==""||content==""){
+    if (title == "" || content == "") {
       alert("请输入内容！");
       return;
     }
@@ -83,6 +83,7 @@ $(function () {
     $("#searchKey").val('');
     fetchList();
   })
+
   function getFormData($form) {
     var unindexed_array = $form.serializeArray();
     var indexed_array = {};

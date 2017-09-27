@@ -9,13 +9,12 @@
   <script src="js/lib/jquery-3.2.1.min.js"></script>
   <script src="js/lib/bootstrap.min.js"></script>
   <script src="js/lib/angular.min.js"></script>
-  <script src="js/index.js"></script>
 </head>
-<body>
+<body style="padding: 50px;">
 <div ng-app="myApp" ng-controller="myCtrl">
   <div class="row no_add">
 
-    <form id="formAdd" >
+    <form id="formAdd">
       <div class="form-group">
         <label>标题</label>
         <input ng-model="addForm.title" id="note_title" type="text" class="form-control" placeholder="标题">
@@ -31,18 +30,19 @@
 
   <div class="row">
     <div class="col-lg-6">
-
     </div>
     <div class="col-lg-6">
       <div class="input-group">
-        <input id="searchKey" type="text" class="form-control" placeholder="Search for...">
+        <input id="searchKey" ng-model="searchKey" type="text" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
-          <button id="searchBtn" class="btn btn-secondary" type="button">Go!</button>
-        </span>
-        <button id="searchClear">清除</button>
+                    <button style="margin:0 10px 0 30px;" id="searchBtn" class="btn btn-group"
+                            type="button" ng-click="formSearch()">Go!</button>
+                    <button class="btn btn-success" id="searchClear" ng-click="clearSearch()">清除</button>
+                </span>
       </div>
     </div>
   </div>
+
   <div class="modal fade" tabindex="-1" role="dialog" id="editDialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -56,28 +56,56 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">标题</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="title" placeholder="标题">
+                <input type="text" class="form-control" name="title" placeholder="标题" ng-model="editingItem.title">
               </div>
             </div>
-            <input type="hidden" name="_id">
             <div class="form-group">
               <label class="col-sm-2 control-label">正文</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="content" placeholder="正文">
+                <input type="text" class="form-control" name="content" placeholder="正文" ng-model="editingItem.content">
               </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" id="editSave">保存</button>
+          <button type="button" class="btn btn-primary" id="editSave" ng-click="editSave()">保存</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-  <div id="table">
 
+  <div id="table">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <td>序号</td>
+        <td>日期</td>
+        <td>标题</td>
+        <td>内容</td>
+        <td>id</td>
+        <td>操作</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="note in noteList">
+        <td>{{$index}}</td>
+        <td>{{note.createTime}}</td>
+        <td>{{note.title}}</td>
+        <td>{{note.content}}</td>
+        <td>{{note._id}}</td>
+        <td>
+          <a href="javascript:void(0);" ng-click="noteEdit(note._id)">编辑</a>
+          <a href="javascript:void(0);" ng-click="noteDelete(note._id)">删除</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div  class="layer-loading" ng-show="loading">
+    <img src="img/img.gif" alt="">
   </div>
 </div>
 </body>
+<script src="js/index.js"></script>
 </html>

@@ -34,9 +34,9 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu {
 }
 
 html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu {
-   margin: 0;
-   padding: 0;
-   font-family: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
 }
 
 button, input, select, textarea {
@@ -137,7 +137,6 @@ a {
   /*display: block; */
 }
 
-
 .no_nav li {
   height: 36px;
   line-height: 36px;
@@ -145,13 +144,35 @@ a {
   padding-left: 0px;
   padding-right: 0px;
 }
-.no_add{
- margin: 0 auto;
-}.no_text{
+
+.no_add {
+  margin: 0 auto;
+}
+
+.no_text {
   margin-bottom: 10px;
   padding: 5px;
   margin-left: 8px;
   min-height: 70px;
   background-color: #fff;
   display: block;
+}
+
+.layer-loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(238, 238, 238, 0.41);
+  top: 0;
+  right: 0;
+  z-index: 1052;
+  img{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80px;
+  }
 }
